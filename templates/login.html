@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='loginstyle.css') }}">
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>Algebra Assist</h1>
+            <p>Creating Connected Classrooms for Math Mastery</p>
+        </div>
+        <div class="creds">
+            <form id="loginForm" action="/login" method="post">
+                <h1><b>LOGIN</b></h1>
+                <label for="username">Username</label>
+                <input type="text" placeholder="Enter your username" id="username" name="username" required> 
+                <label for="regno">Register Number</label>
+                <input type="text" placeholder="Enter your Register no." id="regno" name="regno" required pattern="\d{6}">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter your email" id="email" name="email" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

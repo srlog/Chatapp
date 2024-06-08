@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: rgb(196, 155, 228);
+    font-family:  'Montserrat', sans-serif ;
+}
+.logo{
+    height: 100%;
+    width: 45%;
+    padding-right: 5%;
+    text-align: center;
+    vertical-align: middle;
+    h1{
+        font-size: 600%;
+        color: black ;
+    }
+    p{
+        font-size: 150%;
+    }
+}
+
+.creds{
+    padding-top:3%;
+    padding-left: 5%;
+    width: 40%;
+    h1{
+        text-align: center;
+    }
+}
+.login-container {
+    display: flex;
+    background-color:rgb(178, 114, 228);
+    height: 70%;
+    padding: 2% 3%;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 70%; /* Increased width for a rectangular shape */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 20px ;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input {
+    padding: 15px;
+    margin-top: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 15px;
+    background-color:  rgb(152, 103, 198);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 150%;
+    cursor: pointer;    
+    width: 40%;
+    align-self: center;
+
+}
+
+button:hover {
+    background-color: rgb(198, 103, 198);
+}

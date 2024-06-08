@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homestyle.css') }}">
+</head>
+<body class="homepage">
+    <header class="header">
+        <div class="user-info">
+            <img src="{{ url_for('static', filename='user-dp.png') }}" alt="User DP" class="user-dp">
+        </div>
+        <div class="welcome-message">
+            <h1>Welcome, xxxyyy</h1>
+            <p>Register Number: 545454</p>
+        </div>
+        <div class="header-buttons">
+            <button onclick="location.href='/logout'">Logout</button>
+            <button onclick="location.href='/change-user'">Change User</button>
+        </div>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <h2>Questions Asked</h2>
+            <!-- Questions content here -->
+        </div>
+        <div class="container">
+            <h2>Upcoming Tests and Assignments</h2>
+            <!-- Tests and assignments content here -->
+        </div>
+        <button class="ask-question-button">Ask a Question</button>
+    </main>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
