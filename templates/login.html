@@ -18,13 +18,20 @@
                 <h1><b>LOGIN</b></h1>
                 <label for="username">Username</label>
                 <input type="text" placeholder="Enter your username" id="username" name="username" required> 
-                <label for="regno">Register Number</label>
-                <input type="text" placeholder="Enter your Register no." id="regno" name="regno" required pattern="\d{6}">
-                <label for="email">Email</label>
-                <input type="email" placeholder="Enter your email" id="email" name="email" required>
+                <label for="email">Password</label>
+                <input type="password" placeholder="Enter your Passward" id="email" name="password" required>
+                <label>Designation:</label>
+                <div style="padding: 5%;">
+                <input type="radio" id="student" name="designation" value="Student" required class="radiobtn">
+                <label for="student">Student</label>
+                <input type="radio" id="teacher" name="designation" value="Teacher" class="radiobtn">
+                <label for="teacher">Teacher</label></div>
                 <button type="submit">Login</button>
+                {% if error %}
+                <h3 class="error">{{error}}</h3>
+                {% endif %}
             </form>
-        </div>
+        </div>      
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

@@ -12,24 +12,27 @@
             <img src="{{ url_for('static', filename='user-dp.png') }}" alt="User DP" class="user-dp">
         </div>
         <div class="welcome-message">
-            <h1>Welcome, xxxyyy</h1>
-            <p>Register Number: 545454</p>
+            <h1>Welcome, {{name}} ! </h1>
+            <p>{{designation}}</p>
         </div>
         <div class="header-buttons">
             <button onclick="location.href='/logout'">Logout</button>
-            <button onclick="location.href='/change-user'">Change User</button>
         </div>
     </header>
     <main class="main-content">
         <div class="container">
             <h2>Questions Asked</h2>
-            <!-- Questions content here -->
+            {% for room in room_name %}
+            <h3>{{room[1]}}<h3>
+            <h6>{{room[0]}}</h6>
+            </h3>
+            {% endfor %}
         </div>
         <div class="container">
             <h2>Upcoming Tests and Assignments</h2>
             <!-- Tests and assignments content here -->
         </div>
-        <button class="ask-question-button">Ask a Question</button>
+        <a href="/chat"><button class="small-button">Ask a Question</button></a>
     </main>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

@@ -1,10 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 0; 
     background: rgb(196, 155, 228);
     font-family:  'Montserrat', sans-serif ;
 }
@@ -21,6 +20,12 @@ body {
     p{
         font-size: 150%;
     }
+}
+
+.error{
+    text-align: center;
+    color:rgb(140, 23, 23);
+    
 }
 
 .creds{
@@ -81,4 +86,10 @@ button {
 
 button:hover {
     background-color: rgb(198, 103, 198);
+}
+
+.radiobtn{
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-left: 40px;
 }
