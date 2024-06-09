@@ -1,11 +1,11 @@
 body{
     font-family: Montserrat, sans-serif;
+    background-color:  rgb(218, 193, 238);
 }
 
 
 
 .content{
-    display: flex;
     align-items: center;
     justify-content: center ;
     
@@ -44,7 +44,7 @@ body{
     justify-content: center;
   }
   
-  button {
+.button {
     margin-top: 20px;
     padding: 15px;
     background-color:  rgb(152, 103, 198);
@@ -53,11 +53,55 @@ body{
     border-radius: 5px;
     font-size: 100%;
     cursor: pointer;    
-    width: 30%;
+    width: 400px;
+    align-self: center;
+    left: 100%;
+    transform: translateX(35%);
+    
+
+}
+
+
+.chatbtns{
+    display: flex;
+    gap : 10vb;
+    justify-content: space-evenly;
+
+    .chatbtn {
+        margin-top: 20px;
+        padding: 15px;
+        background-color:  rgb(152, 103, 198);
+        color: black;
+        border: none;
+        border-radius: 5px;
+        font-size: 150%;
+        cursor: pointer;    
+        width: 200px;
+        align-self: center;
+        
+    
+    }
+
+
+}
+
+
+
+
+.sendbutton {
+    margin-top: 20px;
+    padding: 10px;
+    background-color:  rgb(152, 103, 198);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 100%;
+    cursor: pointer;    
+    width: 20%;
     align-self: center;
 
 }
-  .buttons {
+.buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,7 +128,7 @@ body{
     height: 80vh;
     display: flex;
     flex-direction: column;
-    width: 80vw;
+    width: 90vw;
     align-items: stretch;
   }
   
@@ -95,8 +139,9 @@ body{
   }
   
   .inputs {
-    padding: 10px;
+    padding: 5px;
     display: flex;
+    border-radius: 5%;
   }
   
   h2 {
@@ -121,3 +166,22 @@ body{
     color: darkgray;
   }
   
+  input[type="text"] {
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+  .creating {
+    transform: translateY(10%);
+    vertical-align: center;
+    background-color: rgb(186, 164, 206);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+    padding: 120px;
+    margin-bottom: 20px;
+}

@@ -12,27 +12,58 @@
             <img src="{{ url_for('static', filename='user-dp.png') }}" alt="User DP" class="user-dp">
         </div>
         <div class="welcome-message">
+    
             <h1>Welcome, {{name}} ! </h1>
-            <p>{{designation}}</p>
+            
         </div>
-        <div class="header-buttons">
-            <button onclick="location.href='/logout'">Logout</button>
+        <div >
+            <button class="button" style="width: 100%;" onclick="location.href='/logout'">Logout</button>
         </div>
-    </header>
+    </header>   
     <main class="main-content">
         <div class="container">
             <h2>Questions Asked</h2>
-            {% for room in room_name %}
-            <h3>{{room[1]}}<h3>
-            <h6>{{room[0]}}</h6>
-            </h3>
-            {% endfor %}
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Code</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for room in room_name %}
+                    <tr>
+                        <td>{{room[0]}}</td>
+                        <td>{{room[1]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            
+           
         </div>
         <div class="container">
             <h2>Upcoming Tests and Assignments</h2>
-            <!-- Tests and assignments content here -->
+            <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>Assignment</th>
+                        <th>Due</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Case study on Linear algebra</td>
+                        <td>26th june</td>
+                    </tr>
+                    <tr>
+                        <td>Assignemnt on Quadratic solutions</td>
+                        <td>30th june</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <a href="/chat"><button class="small-button">Ask a Question</button></a>
+        <a href="/chat"><button class="button" style="width: 100%; font-size: x-large;"><strong>Ask a Question</strong></button></a>
     </main>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>

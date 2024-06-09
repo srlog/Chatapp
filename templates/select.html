@@ -7,12 +7,16 @@
     <div>
         <label for="topic">Topic</label>
         <input type="text" placeholder="Enter the topic" name="topic" value="{{topic}}">
-        <br><br><br>
+        <button type="submit" name="create"class="button">Create a room</button> 
+        
+    </div>
+    <h1>Join a discussion with Code </h1>
+    <div>
         <label for="code">Code</label>
         <input type="text" placeholder="Room code" name="code" value="{{code}}"/>
-        <button type="submit" name="join">Join a room</button>
+        <button type="submit" name="join" class="button">Join a room</button>
     </div>
-    <button type="submit" name="create" class="create-btn">Create a room</button>
+    
 </form>
 {% if error %}
 <h2 class="error">{{error}}</h2>

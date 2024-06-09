@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0; 
-    background: rgb(196, 155, 228);
+    background: rgb(210, 187, 227);
     font-family:  'Montserrat', sans-serif ;
 }
 .logo{
@@ -29,16 +29,19 @@ body {
 }
 
 .creds{
-    padding-top:3%;
     padding-left: 5%;
     width: 40%;
     h1{
+        font-size: large;
         text-align: center;
+    }
+    label{
+        font-size: large;
     }
 }
 .login-container {
     display: flex;
-    background-color:rgb(178, 114, 228);
+    background-color:rgb(190, 140, 228);
     height: 70%;
     padding: 2% 3%;
     border-radius: 15px;
@@ -71,7 +74,7 @@ input {
 }
 
 button {
-    margin-top: 20px;
+    margin-top: 5px;
     padding: 15px;
     background-color:  rgb(152, 103, 198);
     color: black;
