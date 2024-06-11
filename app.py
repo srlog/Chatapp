@@ -34,7 +34,7 @@ def register():
 @app.route('/login', methods=['POST','GET'])
 def login():
     if session.get("loggedin") :
-        return redirect("homepage")
+        return redirect(url("homepage"))
     if request.method == "POST" :
         username = request.form.get("username")
         password = request.form.get('password')
@@ -92,6 +92,9 @@ def generate_unique_code(length):
 
 @app.route("/chat", methods=["POST", "GET"])
 def home():
+    if not session.get("loggedin") :
+        return redirect(url_for("homepage"))
+    
     name = session.get("name")
     designation = session.get("designation")
     session["name"]= name
@@ -126,6 +129,8 @@ def home():
 
 @app.route("/room")
 def room():
+    if not session.get("loggedin"):
+        return redirect(url_for('login'))
     room = session.get("room")
     if room is None or session.get("name") is None or room not in rooms:    
         return redirect(url_for("home"))
@@ -146,6 +151,7 @@ def message(data):
     send(content, to=room)
     rooms[room]["messages"].append(content)
     print(f"{session.get('name')} said: {data['data']}")
+    
 
 @socketio.on("connect")
 def connect(auth):
@@ -178,6 +184,12 @@ def disconnect():
     
     send({"name": name, "designation":designation, "message": "has left the conversation"}, to=room)
     print(f"{name} has left the conversation {room}")
+
+@app.route("/clearall")
+def clear():
+    session.clear()
+    return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     socketio.run(app, debug=True)
