@@ -1,0 +1,13 @@
+Required packages: 
+    'flask' and 'flask_socketio'
+
+    To install the necessary packages use the command: " pip install flask flask_socketio " 
+
+To run the program
+    
+    Open the terminal and type "python app.py" 
+    Login with the credentials 
+        username: student 
+        password: password
+
+    

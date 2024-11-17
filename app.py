@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from flask_socketio import join_room, leave_room, send, SocketIO
 import random
 from string import ascii_uppercase
+from ai import ask
 
 app = Flask(__name__)
 
@@ -12,7 +13,8 @@ app.config["SECRET_KEY"] = "Thisisanflaskapplicationbuildforstudentstochatandcle
 socketio = SocketIO(app)
 
 rooms = {}
-users = {'Srinivas':'123','Lakshana':'234'}
+
+users = {'user':'1234','student':'password','teacher':'password'}
 
 @app.route('/register',methods=["POST","GET"])
 def register():
@@ -34,7 +36,7 @@ def register():
 @app.route('/login', methods=['POST','GET'])
 def login():
     if session.get("loggedin") :
-        return redirect(url("homepage"))
+        return redirect("homepage")
     if request.method == "POST" :
         username = request.form.get("username")
         password = request.form.get('password')
@@ -150,6 +152,17 @@ def message(data):
     }
     send(content, to=room)
     rooms[room]["messages"].append(content)
+    if ('@ai' in data["data"].lower()) or ('@alas' in data["data"].lower()):
+        resp = ask(data["data"])
+        contentai = {
+            "name": "Ana",
+            "designation" : session.get("designation","Your slave"),
+            "message": resp
+        }
+        send(contentai,to=room)
+        rooms[room]["messages"].append(contentai)
+        print(f"AI said: {resp} to {session.get('name')}")
+
     print(f"{session.get('name')} said: {data['data']}")
     
 
@@ -166,9 +179,9 @@ def connect(auth):
         return
     
     join_room(room)
-    send({"name": name, "designation":designation,"message": "joined the conversation"}, to=room)
+    send({"name": name, "designation":designation,"message": "joined the discussion"}, to=room)
     rooms[room]["members"] += 1
-    print(f"{name} joined the conversation {room}")
+    print(f"{name} joined the discussion {room}")
 
 @socketio.on("disconnect")
 def disconnect():
@@ -182,8 +195,8 @@ def disconnect():
         if rooms[room]["members"] <= 0:
             del rooms[room]
     
-    send({"name": name, "designation":designation, "message": "has left the conversation"}, to=room)
-    print(f"{name} has left the conversation {room}")
+    send({"name": name, "designation":designation, "message": "has left the discussion"}, to=room)
+    print(f"{name} has left the discussion {room}")
 
 @app.route("/clearall")
 def clear():
